@@ -21,9 +21,9 @@ let masReviewPeriodLimit: TimeInterval = 60 * 60 * 24 * 7
 
 // NOTE: to build your own product, you need to replace the team identifier to yours
 // and do the same thing in LyricsXHelper
-let lyricsXGroupIdentifier = "3665V726AE.group.ddddxxx.LyricsX"
-let lyricsXHelperIdentifier = "ddddxxx.LyricsXHelper"
-let lyricsXErrorDomain = "ddddxxx.LyricsX"
+let lyricsXGroupIdentifier = "D5Q73692VW.group.com.JH.LyricsX"
+let lyricsXHelperIdentifier = "com.JH.LyricsXHelper"
+let lyricsXErrorDomain = "com.JH.LyricsX"
 
 let crowdinProjectURL = URL(string: "https://crowdin.com/project/lyricsx")!
 
