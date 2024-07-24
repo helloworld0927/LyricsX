@@ -1,7 +1,7 @@
 # LyricsX
 
 > [!IMPORTANT]  
-> This is the version of LyricsX that I personally maintain. The original author seems to have stopped maintaining it. I will fix any remaining bugs and add some new features in my spare time.
+> This is the version of LyricsX that I personally maintain. The original author seems to have stopped maintaining it. I will fix some remaining bugs and add some new features in my spare time.
 
 ## Original README
 [![Crowdin](https://badges.crowdin.net/lyricsx/localized.svg)](https://crowdin.com/project/lyricsx)
