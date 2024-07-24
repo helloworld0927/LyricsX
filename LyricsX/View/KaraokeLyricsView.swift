@@ -9,8 +9,11 @@
 
 import Cocoa
 import SnapKit
+import OSLog
 
 class KaraokeLyricsView: NSView {
+    
+    static let logger = Logger(subsystem: "com.JH.LyricsX", category: "\(KaraokeLyricsView.self)")
     
     private let backgroundView: NSView
     private let stackView: NSStackView
@@ -155,9 +158,10 @@ class KaraokeLyricsView: NSView {
     
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
+        Self.logger.debug("\(Date()): \(#function)")
         trackingArea.map(removeTrackingArea)
         if shouldHideWithMouse {
-            let trackingOptions: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways, .assumeInside, .enabledDuringMouseDrag]
+            let trackingOptions: NSTrackingArea.Options = [.mouseEnteredAndExited, .mouseMoved, .activeAlways, .assumeInside]
             trackingArea = NSTrackingArea(rect: bounds, options: trackingOptions, owner: self)
             trackingArea.map(addTrackingArea)
         }
@@ -174,12 +178,21 @@ class KaraokeLyricsView: NSView {
         }
     }
     
+    override func mouseMoved(with event: NSEvent) {
+        Self.logger.debug("\(Date()): \(#function)")
+        if alphaValue != 0 {
+            animator().alphaValue = 0
+        }
+    }
+    
     override func mouseEntered(with event: NSEvent) {
+        Self.logger.debug("\(Date()): \(#function)")
         animator().alphaValue = 0
     }
     
     override func mouseExited(with event: NSEvent) {
-        animator().alphaValue = 1
+        Self.logger.debug("\(Date()): \(#function)")
+        animator().alphaValue = 1        
     }
     
 }
