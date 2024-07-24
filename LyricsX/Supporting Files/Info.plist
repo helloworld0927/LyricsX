@@ -32,9 +32,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.6.4</string>
+	<string>1.6.6</string>
 	<key>CFBundleVersion</key>
-	<string>2354</string>
+	<string>2361</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -58,7 +58,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>LX_BUILD_TIME</key>
-	<integer>1721747998</integer>
+	<integer>1721804068</integer>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -152,7 +152,7 @@
 	<string>NSApplication</string>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.ddddxxx.LyricsX</key>
+		<key>iCloud.com.JH.LyricsX</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>

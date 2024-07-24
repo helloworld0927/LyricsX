@@ -16,8 +16,11 @@ import MusicPlayer
 import OpenCC
 import SwiftCF
 import AccessibilityExt
+import OSLog
 
 class MenuBarLyricsController {
+    
+    let logger = Logger(subsystem: "com.JH.LyricsX", category: "MenuBarLyricsController")
     
     static let shared = MenuBarLyricsController()
     
@@ -99,6 +102,8 @@ class MenuBarLyricsController {
         lyricsItem = nil
         
         setTextStatusItem(string: screenLyrics)
+        logger.debug("Title: \(self.screenLyrics), isVisible: \(self.statusItem.isVisibe)")
+        /*
         if statusItem.isVisibe {
             return
         }
@@ -109,7 +114,9 @@ class MenuBarLyricsController {
             components.removeLast()
             let proposed = components.joined() + "..."
             setTextStatusItem(string: proposed)
+            logger.debug("Title: \(proposed), isVisible: \(self.statusItem.isVisibe)")
         }
+        */
     }
     
     private func setTextStatusItem(string: String) {
