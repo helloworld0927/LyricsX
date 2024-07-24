@@ -1,5 +1,8 @@
 # LyricsX
 
+### This is the version of LyricsX that I personally maintain. The original author seems to have stopped maintaining it. I will fix any remaining bugs and add some new features in my spare time.
+
+## Original README
 [![Crowdin](https://badges.crowdin.net/lyricsx/localized.svg)](https://crowdin.com/project/lyricsx)
 [![Telegram](https://img.shields.io/badge/chat-Telegram-blue.svg)](https://telegram.me/LyricsXApp)
 [![codebeat badge](https://codebeat.co/badges/d4ea2fbf-89a0-4490-875f-857a1568ec16)](https://codebeat.co/projects/github-com-ddddxxx-lyricsx-master)
