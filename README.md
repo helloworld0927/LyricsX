@@ -3,10 +3,6 @@
 > [!IMPORTANT]  
 > This is the version of LyricsX that I personally maintain. The original author seems to have stopped maintaining it. I will fix some remaining bugs and add some new features in my spare time.
 
-## Original README
-[![Crowdin](https://badges.crowdin.net/lyricsx/localized.svg)](https://crowdin.com/project/lyricsx)
-[![Telegram](https://img.shields.io/badge/chat-Telegram-blue.svg)](https://telegram.me/LyricsXApp)
-[![codebeat badge](https://codebeat.co/badges/d4ea2fbf-89a0-4490-875f-857a1568ec16)](https://codebeat.co/projects/github-com-ddddxxx-lyricsx-master)
 
 <img src="docs/img/icon.png" width="128px">
 
@@ -19,20 +15,17 @@ Ultimate lyrics app for macOS.
 ### Homebrew
 
 ```
-$ brew install --cask lyricsx
+brew tap brewforge/extra
+brew install lyricsxjh
 ```
-
-### Mac App Store
-
-[![download on the Mac App Store](docs/img/MAS_badge.svg)](https://itunes.apple.com/us/app/lyricsx/id1254743014?mt=12)
 
 ### Manual
 
-Download from [releases](https://github.com/ddddxxx/LyricsX/releases).
+Download from [releases](https://github.com/MxIris-LyricsX-Project/LyricsX/releases).
 
 ### Requirements
 
-- macOS 10.11+
+- macOS 11+
 
 ## Features
 
