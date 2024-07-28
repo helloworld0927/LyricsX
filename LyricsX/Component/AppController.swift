@@ -205,6 +205,7 @@ class AppController: NSObject {
         searchRequest = req
         searchCanceller = lyricsManager.lyricsPublisher(request: req)
             .timeout(.seconds(10), scheduler: DispatchQueue.lyricsDisplay.cx)
+            .first()
             .sink(receiveCompletion: { [unowned self] _ in
                 if defaults[.writeToiTunesAutomatically] {
                     self.writeToiTunes(overwrite: true)
