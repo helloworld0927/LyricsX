@@ -17,30 +17,41 @@ import OpenCC
 import SwiftCF
 import AccessibilityExt
 import OSLog
+import MarqueeLabel
 
 class MenuBarLyricsController {
-    
     let logger = Logger(subsystem: "com.JH.LyricsX", category: "MenuBarLyricsController")
-    
+
     static let shared = MenuBarLyricsController()
-    
+
     let statusItem: NSStatusItem
     var lyricsItem: NSStatusItem?
     var buttonImage = #imageLiteral(resourceName: "status_bar_icon")
     var buttonlength: CGFloat = 30
-    
-    private var screenLyrics = "" {
+
+    private let marqueeLabel = MarqueeLabel(frame: .init(x: 0, y: 0, width: 183, height: 22))
+
+    private var lastDisplayMode: DisplayMode?
+
+    private enum DisplayMode {
+        case separate
+        case combine
+    }
+
+    private static let defaultLyric = "LyricsX"
+
+    private var screenLyrics: (lyrics: String, duration: TimeInterval) = (MenuBarLyricsController.defaultLyric, 2) {
         didSet {
             DispatchQueue.main.async {
                 self.updateStatusItem()
             }
         }
     }
-    
+
     private var cancelBag = Set<AnyCancellable>()
-    
+
     private init() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         AppController.shared.$currentLyrics
             .combineLatest(AppController.shared.$currentLineIndex)
             .receive(on: DispatchQueue.lyricsDisplay.cx)
@@ -56,115 +67,125 @@ class MenuBarLyricsController {
             .invoke(MenuBarLyricsController.updateStatusItem, weaklyOn: self)
             .store(in: &cancelBag)
     }
-    
+
     private func handleLyricsDisplay(event: (lyrics: Lyrics?, index: Int?)) {
         guard !defaults[.disableLyricsWhenPaused] || selectedPlayer.playbackState.isPlaying,
-            let lyrics = event.lyrics,
-            let index = event.index else {
-            screenLyrics = ""
+              let lyrics = event.lyrics,
+              let index = event.index else {
+//            screenLyrics = (MenuBarLyricsController.defaultLyric, 2)
             return
         }
-        var newScreenLyrics = lyrics.lines[index].content
+        let currentLine = lyrics.lines[index]
+        var newScreenLyrics = currentLine.content
         if let converter = ChineseConverter.shared, lyrics.metadata.language?.hasPrefix("zh") == true {
             newScreenLyrics = converter.convert(newScreenLyrics)
         }
-        if newScreenLyrics == screenLyrics {
+        if newScreenLyrics == screenLyrics.lyrics {
             return
         }
-        screenLyrics = newScreenLyrics
+        let lineDisplayTime: TimeInterval
+        if let duration = currentLine.attachments.timetag?.duration {
+            lineDisplayTime = duration
+        } else if let nextLine = lyrics.lines[safe: index + 1] {
+            lineDisplayTime = nextLine.position - currentLine.position
+        } else {
+            lineDisplayTime = 2
+        }
+        screenLyrics = (newScreenLyrics, lineDisplayTime)
     }
-    
+
     @objc private func updateStatusItem() {
-        guard defaults[.menuBarLyricsEnabled], !screenLyrics.isEmpty else {
+        guard defaults[.menuBarLyricsEnabled] else {
             setImageStatusItem()
+            marqueeLabel.removeFromSuperview()
             lyricsItem = nil
+            lastDisplayMode = nil
             return
         }
-        
+
         if defaults[.combinedMenubarLyrics] {
             updateCombinedStatusLyrics()
+            lastDisplayMode = .combine
         } else {
             updateSeparateStatusLyrics()
+            lastDisplayMode = .separate
         }
     }
-    
+
     private func updateSeparateStatusLyrics() {
-        setImageStatusItem()
-        
-        if lyricsItem == nil {
+        if lastDisplayMode == nil || lastDisplayMode == .combine {
+            setImageStatusItem()
+            marqueeLabel.removeFromSuperview()
             lyricsItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-            lyricsItem?.highlightMode = false
+            lyricsItem?.button?.frame = marqueeLabel.bounds
+            lyricsItem?.button?.addSubview(marqueeLabel)
         }
-        lyricsItem?.title = screenLyrics
+
+        marqueeLabel.setStringValue(screenLyrics.lyrics, lineDisplayTime: screenLyrics.duration)
     }
-    
+
     private func updateCombinedStatusLyrics() {
-        lyricsItem = nil
-        
-        setTextStatusItem(string: screenLyrics)
-        logger.debug("Title: \(self.screenLyrics), isVisible: \(self.statusItem.isVisibe)")
-        /*
-        if statusItem.isVisibe {
-            return
+        if lastDisplayMode == nil || lastDisplayMode == .separate {
+            marqueeLabel.removeFromSuperview()
+            lyricsItem = nil
+            statusItem.button?.title = ""
+            statusItem.button?.image = nil
+            statusItem.length = NSStatusItem.variableLength
+            statusItem.button?.frame = marqueeLabel.bounds
+            statusItem.button?.addSubview(marqueeLabel)
         }
-        
-        // truncation
-        var components = screenLyrics.components(options: [.byWords])
-        while !components.isEmpty, !statusItem.isVisibe {
-            components.removeLast()
-            let proposed = components.joined() + "..."
-            setTextStatusItem(string: proposed)
-            logger.debug("Title: \(proposed), isVisible: \(self.statusItem.isVisibe)")
-        }
-        */
+
+        marqueeLabel.setStringValue(screenLyrics.lyrics, lineDisplayTime: screenLyrics.duration)
     }
-    
-    private func setTextStatusItem(string: String) {
-        statusItem.title = string
-        statusItem.image = nil
-        statusItem.length = NSStatusItem.variableLength
-    }
-    
+
     private func setImageStatusItem() {
-        statusItem.title = ""
-        statusItem.image = buttonImage
+        statusItem.button?.title = ""
+        statusItem.button?.image = buttonImage
         statusItem.length = buttonlength
     }
 }
 
 // MARK: - Status Item Visibility
 
-private extension NSStatusItem {
-    
-    var isVisibe: Bool {
+extension NSStatusItem {
+    fileprivate var isVisibe: Bool {
         guard let buttonFrame = button?.frame,
-            let frame = button?.window?.convertToScreen(buttonFrame) else {
-                return false
+              let frame = button?.window?.convertToScreen(buttonFrame) else {
+            return false
         }
-        
+
         let point = CGPoint(x: frame.midX, y: frame.midY)
         guard let screen = NSScreen.screens.first(where: { $0.frame.contains(point) }) else {
             return false
         }
         let carbonPoint = CGPoint(x: point.x, y: screen.frame.height - point.y - 1)
-        
+
         guard let element = try? AXUIElement.systemWide().element(at: carbonPoint),
-            let pid = try? element.pid() else {
+              let pid = try? element.pid() else {
             return false
         }
-        
+
         return getpid() == pid
     }
 }
 
-private extension String {
-    
-    func components(options: String.EnumerationOptions) -> [String] {
+extension String {
+    fileprivate func components(options: String.EnumerationOptions) -> [String] {
         var components: [String] = []
         let range = Range(uncheckedBounds: (startIndex, endIndex))
         enumerateSubstrings(in: range, options: options) { _, _, range, _ in
             components.append(String(self[range]))
         }
         return components
+    }
+}
+
+extension Array {
+    subscript(safe safeIndex: Int) -> Element? {
+        if safeIndex >= 0, safeIndex < count {
+            return self[safeIndex]
+        } else {
+            return nil
+        }
     }
 }
