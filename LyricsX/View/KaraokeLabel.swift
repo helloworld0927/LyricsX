@@ -92,15 +92,33 @@ class KaraokeLabel: NSTextField {
     }
     
     private var _ctFrame: CTFrame?
-    private var ctFrame: CTFrame {
+//    private var ctFrame: CTFrame {
+//        if let ctFrame = _ctFrame {
+//            return ctFrame
+//        }
+//        layoutSubtreeIfNeeded()
+//        let progression: CTFrameProgression = isVertical ? .rightToLeft : .topToBottom
+//        let frameAttr: [CTFrame.AttributeKey: Any] = [.progression: progression.rawValue as NSNumber]
+//        let framesetter = CTFramesetter.create(attributedString: attrString)
+//        print(bounds.size)
+//        let (suggestSize, fitRange) = framesetter.suggestFrameSize(constraints: bounds.size, frameAttributes: frameAttr)
+//        let path = CGPath(rect: CGRect(origin: .zero, size: suggestSize), transform: nil)
+//        let ctFrame = framesetter.frame(stringRange: fitRange, path: path, frameAttributes: frameAttr)
+//        _ctFrame = ctFrame
+//        return ctFrame
+//    }
+    
+    private func ctFrame(_ dirtyRect: NSRect? = nil) -> CTFrame {
         if let ctFrame = _ctFrame {
             return ctFrame
         }
-        layoutSubtreeIfNeeded()
+        if dirtyRect == nil {
+            layoutSubtreeIfNeeded()
+        }
         let progression: CTFrameProgression = isVertical ? .rightToLeft : .topToBottom
         let frameAttr: [CTFrame.AttributeKey: Any] = [.progression: progression.rawValue as NSNumber]
         let framesetter = CTFramesetter.create(attributedString: attrString)
-        let (suggestSize, fitRange) = framesetter.suggestFrameSize(constraints: bounds.size, frameAttributes: frameAttr)
+        let (suggestSize, fitRange) = framesetter.suggestFrameSize(constraints: (dirtyRect ?? bounds).size, frameAttributes: frameAttr)
         let path = CGPath(rect: CGRect(origin: .zero, size: suggestSize), transform: nil)
         let ctFrame = framesetter.frame(stringRange: fitRange, path: path, frameAttributes: frameAttr)
         _ctFrame = ctFrame
@@ -116,11 +134,23 @@ class KaraokeLabel: NSTextField {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        let context = NSGraphicsContext.current!.cgContext
-        context.textMatrix = .identity
-        context.translateBy(x: 0, y: bounds.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        CTFrameDraw(ctFrame, context)
+        
+//        let image = NSImage(size: dirtyRect.size, flipped: true) { rect in
+//            guard let context = NSGraphicsContext.current else { return false }
+//            let cgContext = context.cgContext
+//            cgContext.textMatrix = .identity
+//            cgContext.translateBy(x: 0, y: rect.height)
+//            cgContext.scaleBy(x: 1.0, y: -1.0)
+//            CTFrameDraw(self.ctFrame, cgContext)
+//            return true
+//        }
+//        image.draw(in: dirtyRect)
+        guard let context = NSGraphicsContext.current else { return }
+        let cgContext = context.cgContext
+        cgContext.textMatrix = .identity
+        cgContext.translateBy(x: 0, y: bounds.height)
+        cgContext.scaleBy(x: 1.0, y: -1.0)
+        CTFrameDraw(ctFrame(dirtyRect), cgContext)
     }
     
     // MARK: - Progress
@@ -144,8 +174,8 @@ class KaraokeLabel: NSTextField {
     
     func setProgressAnimation(color: NSColor, progress: [(TimeInterval, Int)]) {
         removeProgressAnimation()
-        guard let line = ctFrame.lines.first,
-            let origin = ctFrame.lineOrigins(range: CFRange(location: 0, length: 1)).first else {
+        guard let line = ctFrame().lines.first,
+            let origin = ctFrame().lineOrigins(range: CFRange(location: 0, length: 1)).first else {
                 return
         }
         var lineBounds = line.bounds()
@@ -165,7 +195,7 @@ class KaraokeLabel: NSTextField {
             let context = NSGraphicsContext.current!.cgContext
             let ori = lineBounds.applying(.flip(height: self.bounds.height)).origin
             context.concatenate(.translate(x: -ori.x, y: -ori.y))
-            CTFrameDraw(self.ctFrame, context)
+            CTFrameDraw(self.ctFrame(), context)
             return true
         }
         mask.contents = img.cgImage(forProposedRect: nil, context: nil, hints: nil)
