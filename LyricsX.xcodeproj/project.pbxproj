@@ -89,8 +89,6 @@
 		BB58B0891E82CA9B00598D4F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB58B0881E82CA9B00598D4F /* Credits.rtf */; };
 		BB58D8BF248636900047E3C6 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58D8BE248636900047E3C6 /* DonateViewController.swift */; };
 		BB58D8C0248636900047E3C6 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58D8BE248636900047E3C6 /* DonateViewController.swift */; };
-		BB58D8C2248638950047E3C6 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58D8C1248638950047E3C6 /* DebugViewController.swift */; };
-		BB58D8C3248638950047E3C6 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58D8C1248638950047E3C6 /* DebugViewController.swift */; };
 		BB5D4B2D2094A1D700844D9F /* FontSelectTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5D4B2C2094A1D700844D9F /* FontSelectTextField.swift */; };
 		BB60F3041E889A1B00BA1FD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB60F3031E889A1B00BA1FD2 /* AppDelegate.swift */; };
 		BB60F3061E889A1B00BA1FD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB60F3051E889A1B00BA1FD2 /* Assets.xcassets */; };
@@ -106,10 +104,6 @@
 		BB947DFB23B4C60000C43BF2 /* SelectedPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB947DFA23B4C60000C43BF2 /* SelectedPlayer.swift */; };
 		BB947DFC23B4C60000C43BF2 /* SelectedPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB947DFA23B4C60000C43BF2 /* SelectedPlayer.swift */; };
 		BB9BCEBA1E843157001BC54B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BCEB91E843157001BC54B /* Extension.swift */; };
-		BBA82EFB256AB1490076831F /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = BBA82EFA256AB1490076831F /* AppCenterCrashes */; };
-		BBA82EFD256AB1490076831F /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BBA82EFC256AB1490076831F /* AppCenterAnalytics */; };
-		BBA82F03256AB29F0076831F /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BBA82F02256AB29F0076831F /* AppCenterAnalytics */; };
-		BBA82F05256AB29F0076831F /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = BBA82F04256AB29F0076831F /* AppCenterCrashes */; };
 		BBA82F0A256AB8620076831F /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = BBA82F09256AB8620076831F /* Sparkle */; };
 		BBB03F2D232FB3AF00A3879E /* GenericID in Frameworks */ = {isa = PBXBuildFile; productRef = BBB03F2C232FB3AF00A3879E /* GenericID */; };
 		BBB03F30232FB40400A3879E /* Semver in Frameworks */ = {isa = PBXBuildFile; productRef = BBB03F2F232FB40400A3879E /* Semver */; };
@@ -128,6 +122,7 @@
 		BBE2A79924041E36004A7E93 /* CombineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2A79724041E36004A7E93 /* CombineExtension.swift */; };
 		BBE8FC751F6BEA6200122AFA /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8FC741F6BEA6200122AFA /* Then.swift */; };
 		E91F76EB21211B8D00755698 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F76EA21211B8D00755698 /* PreferenceViewController.swift */; };
+		E974B0462CB3A79400D1B97F /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = E974B0452CB3A79400D1B97F /* LyricsKit */; };
 		E97593E42150F47900D80616 /* Polyfill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97593E32150F47800D80616 /* Polyfill.swift */; };
 		E97593E62150F6FB00D80616 /* IBInspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97593E52150F6FB00D80616 /* IBInspection.swift */; };
 		E97AFB59215CBF0300AF74CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E97AFB5B215CBF0300AF74CD /* InfoPlist.strings */; };
@@ -136,7 +131,6 @@
 		E9C13F542C56A053009EC242 /* MusicPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = E9C13F532C56A053009EC242 /* MusicPlayer */; };
 		E9C4E2992AC9A10F004B9EB2 /* MASShortcut in Frameworks */ = {isa = PBXBuildFile; productRef = E9C4E2982AC9A10F004B9EB2 /* MASShortcut */; };
 		E9C4E29C2AC9A124004B9EB2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E9C4E29B2AC9A124004B9EB2 /* SnapKit */; };
-		E9C4E29F2AC9A3B7004B9EB2 /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = E9C4E29E2AC9A3B7004B9EB2 /* LyricsKit */; };
 		E9C4E2A22AC9A3D6004B9EB2 /* SwiftCF in Frameworks */ = {isa = PBXBuildFile; productRef = E9C4E2A12AC9A3D6004B9EB2 /* SwiftCF */; };
 		E9E55138207C4CB000F9958A /* TouchBarLyricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E55137207C4CB000F9958A /* TouchBarLyricsController.swift */; };
 		E9EBDA2521115A150019FDF9 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EBDA2421115A150019FDF9 /* Observation.swift */; };
@@ -214,7 +208,6 @@
 		BB58B0811E82971400598D4F /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		BB58B0881E82CA9B00598D4F /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		BB58D8BE248636900047E3C6 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
-		BB58D8C1248638950047E3C6 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		BB5C552F232B5D1B00448FC0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		BB5C5530232B5D1B00448FC0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Preferences.strings; sourceTree = "<group>"; };
 		BB5C5531232B5D7200448FC0 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -307,16 +300,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C4E2992AC9A10F004B9EB2 /* MASShortcut in Frameworks */,
-				E9C4E29F2AC9A3B7004B9EB2 /* LyricsKit in Frameworks */,
 				E9C4E29C2AC9A124004B9EB2 /* SnapKit in Frameworks */,
 				BBA82F0A256AB8620076831F /* Sparkle in Frameworks */,
 				BBB03F3A2331D8A800A3879E /* OpenCC in Frameworks */,
 				BB003EFF248F89A700860FF7 /* CXShim in Frameworks */,
 				BBB03F30232FB40400A3879E /* Semver in Frameworks */,
 				BB6C75E8248B908500804AEB /* TouchBarHelper in Frameworks */,
+				E974B0462CB3A79400D1B97F /* LyricsKit in Frameworks */,
 				E9C4E2A22AC9A3D6004B9EB2 /* SwiftCF in Frameworks */,
-				BBA82EFB256AB1490076831F /* AppCenterCrashes in Frameworks */,
-				BBA82EFD256AB1490076831F /* AppCenterAnalytics in Frameworks */,
 				E983FA212C85EA6E00170CF7 /* MarqueeLabel in Frameworks */,
 				E983FA242C86302200170CF7 /* MarqueeLabel in Frameworks */,
 				BBB03F2D232FB3AF00A3879E /* GenericID in Frameworks */,
@@ -333,9 +324,7 @@
 				BB6C75EA248B908F00804AEB /* TouchBarHelper in Frameworks */,
 				BB003F01248F89B700860FF7 /* CXShim in Frameworks */,
 				BBB03F3F2331DBB000A3879E /* GenericID in Frameworks */,
-				BBA82F03256AB29F0076831F /* AppCenterAnalytics in Frameworks */,
 				BB350AC023D0614800500146 /* CXExtensions in Frameworks */,
-				BBA82F05256AB29F0076831F /* AppCenterCrashes in Frameworks */,
 				BBB03F412331DBB000A3879E /* Semver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,7 +418,6 @@
 				BB7EC7B11E4E018C00A0AC3F /* LyricsHUDViewController.swift */,
 				BBB9AAE21E57EE880078F91A /* SearchLyricsViewController.swift */,
 				BB58D8BE248636900047E3C6 /* DonateViewController.swift */,
-				BB58D8C1248638950047E3C6 /* DebugViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -518,16 +506,14 @@
 				BB350ABD23D0613D00500146 /* CXExtensions */,
 				BB6C75E7248B908500804AEB /* TouchBarHelper */,
 				BB003EFE248F89A700860FF7 /* CXShim */,
-				BBA82EFA256AB1490076831F /* AppCenterCrashes */,
-				BBA82EFC256AB1490076831F /* AppCenterAnalytics */,
 				BBA82F09256AB8620076831F /* Sparkle */,
 				E9C4E2982AC9A10F004B9EB2 /* MASShortcut */,
 				E9C4E29B2AC9A124004B9EB2 /* SnapKit */,
-				E9C4E29E2AC9A3B7004B9EB2 /* LyricsKit */,
 				E9C4E2A12AC9A3D6004B9EB2 /* SwiftCF */,
 				E9C13F532C56A053009EC242 /* MusicPlayer */,
 				E983FA202C85EA6E00170CF7 /* MarqueeLabel */,
 				E983FA232C86302200170CF7 /* MarqueeLabel */,
+				E974B0452CB3A79400D1B97F /* LyricsKit */,
 			);
 			productName = LyricsX;
 			productReference = BB4141AA1E458BA800A51775 /* LyricsX.app */;
@@ -559,8 +545,6 @@
 				BB350ABF23D0614800500146 /* CXExtensions */,
 				BB6C75E9248B908F00804AEB /* TouchBarHelper */,
 				BB003F00248F89B700860FF7 /* CXShim */,
-				BBA82F02256AB29F0076831F /* AppCenterAnalytics */,
-				BBA82F04256AB29F0076831F /* AppCenterCrashes */,
 			);
 			productName = LyricsX;
 			productReference = BB5078AD22014C3900B695C3 /* LyricsX.app */;
@@ -666,14 +650,13 @@
 				BB350ABC23D0613D00500146 /* XCRemoteSwiftPackageReference "CXExtensions" */,
 				BB6C75E6248B908500804AEB /* XCRemoteSwiftPackageReference "TouchBarHelper" */,
 				BB003EFD248F89A700860FF7 /* XCRemoteSwiftPackageReference "CombineX" */,
-				BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
 				BBA82F08256AB8620076831F /* XCRemoteSwiftPackageReference "Sparkle" */,
 				E9C4E2972AC9A10F004B9EB2 /* XCRemoteSwiftPackageReference "MASShortcut" */,
 				E9C4E29A2AC9A124004B9EB2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				E9C4E29D2AC9A3B7004B9EB2 /* XCRemoteSwiftPackageReference "LyricsKit" */,
 				E9C4E2A02AC9A3D6004B9EB2 /* XCRemoteSwiftPackageReference "SwiftCF" */,
 				E9C13F522C56A053009EC242 /* XCRemoteSwiftPackageReference "MusicPlayer" */,
 				E983FA222C86302200170CF7 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
+				E974B0442CB3A79400D1B97F /* XCRemoteSwiftPackageReference "LyricsKit" */,
 			);
 			productRefGroup = BB4141AB1E458BA800A51775 /* Products */;
 			projectDirPath = "";
@@ -875,7 +858,6 @@
 				BBE8FC751F6BEA6200122AFA /* Then.swift in Sources */,
 				BB34F7E61F21911700B7C484 /* Updater.swift in Sources */,
 				BB58640721F2B7500084D2C0 /* TouchBarArtworkViewController.swift in Sources */,
-				BB58D8C2248638950047E3C6 /* DebugViewController.swift in Sources */,
 				BBC1D35F1E499A6D002538A2 /* Global.swift in Sources */,
 				BB1B300320E878AE002F1AF8 /* StdExtension.swift in Sources */,
 				BB947DFB23B4C60000C43BF2 /* SelectedPlayer.swift in Sources */,
@@ -920,7 +902,6 @@
 				BB50787722014C3900B695C3 /* Then.swift in Sources */,
 				BB50787822014C3900B695C3 /* Updater.swift in Sources */,
 				BB50787A22014C3900B695C3 /* TouchBarArtworkViewController.swift in Sources */,
-				BB58D8C3248638950047E3C6 /* DebugViewController.swift in Sources */,
 				BB50787B22014C3900B695C3 /* Global.swift in Sources */,
 				BB50787C22014C3900B695C3 /* StdExtension.swift in Sources */,
 				BB947DFC23B4C60000C43BF2 /* SelectedPlayer.swift in Sources */,
@@ -1403,14 +1384,6 @@
 				minimumVersion = 0.1.0;
 			};
 		};
-		BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		BBA82F08256AB8620076831F /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -1440,6 +1413,14 @@
 			repositoryURL = "https://github.com/ddddxxx/SwiftyOpenCC";
 			requirement = {
 				branch = "v2.0.0-beta";
+				kind = branch;
+			};
+		};
+		E974B0442CB3A79400D1B97F /* XCRemoteSwiftPackageReference "LyricsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MxIris-LyricsX-Project/LyricsKit";
+			requirement = {
+				branch = temporary;
 				kind = branch;
 			};
 		};
@@ -1473,14 +1454,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.6.0;
-			};
-		};
-		E9C4E29D2AC9A3B7004B9EB2 /* XCRemoteSwiftPackageReference "LyricsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Mx-Iris/LyricsKit";
-			requirement = {
-				branch = temporary;
-				kind = branch;
 			};
 		};
 		E9C4E2A02AC9A3D6004B9EB2 /* XCRemoteSwiftPackageReference "SwiftCF" */ = {
@@ -1524,26 +1497,6 @@
 			package = BB6C75E6248B908500804AEB /* XCRemoteSwiftPackageReference "TouchBarHelper" */;
 			productName = TouchBarHelper;
 		};
-		BBA82EFA256AB1490076831F /* AppCenterCrashes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterCrashes;
-		};
-		BBA82EFC256AB1490076831F /* AppCenterAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterAnalytics;
-		};
-		BBA82F02256AB29F0076831F /* AppCenterAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterAnalytics;
-		};
-		BBA82F04256AB29F0076831F /* AppCenterCrashes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BBA82EF9256AB1490076831F /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterCrashes;
-		};
 		BBA82F09256AB8620076831F /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BBA82F08256AB8620076831F /* XCRemoteSwiftPackageReference "Sparkle" */;
@@ -1579,6 +1532,11 @@
 			package = BBB03F382331D8A800A3879E /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */;
 			productName = OpenCC;
 		};
+		E974B0452CB3A79400D1B97F /* LyricsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E974B0442CB3A79400D1B97F /* XCRemoteSwiftPackageReference "LyricsKit" */;
+			productName = LyricsKit;
+		};
 		E983FA202C85EA6E00170CF7 /* MarqueeLabel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MarqueeLabel;
@@ -1602,11 +1560,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E9C4E29A2AC9A124004B9EB2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		E9C4E29E2AC9A3B7004B9EB2 /* LyricsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E9C4E29D2AC9A3B7004B9EB2 /* XCRemoteSwiftPackageReference "LyricsKit" */;
-			productName = LyricsKit;
 		};
 		E9C4E2A12AC9A3D6004B9EB2 /* SwiftCF */ = {
 			isa = XCSwiftPackageProductDependency;
