@@ -15,8 +15,8 @@ Ultimate lyrics app for macOS.
 ### Homebrew
 
 ```
-brew tap brewforge/extra
-brew install lyricsxjh
+brew tap brewforge/extras
+brew install brewforge/extras/lyricsx-mxiris
 ```
 
 ### Manual
